@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#0b1020"/><title>BuildNest — Software Store Demo</title><link rel="stylesheet" href="styles.css"/><link rel="stylesheet" href="enhancements.css"/></head>
+<body>
+<div id="app" class="shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="brand-mark"><span>◈</span></div><div class="brand-text"><b>buildnest<span class="brand-dot">.</span></b><small>SOFTWARE STUDIO</small></div><button class="side-close" id="sideClose" aria-label="Close sidebar">×</button></div>
+    <div class="workspace-pill"><span class="workspace-avatar">B</span><span class="workspace-copy"><b>Personal workspace</b><small>Software business / demo</small></span><span class="chev">⌄</span></div>
+    <div class="nav-label" data-i18n="discover">DISCOVER</div>
+    <nav id="primaryNav" aria-label="Main navigation">
+      <button class="nav-item active" data-view="overview"><span class="nav-ico">⌂</span><span data-i18n="overview">Overview</span></button>
+      <button class="nav-item" data-view="marketplace"><span class="nav-ico">▦</span><span data-i18n="marketplace">Marketplace</span><span class="nav-count">8</span></button>
+      <button class="nav-item" data-view="automations"><span class="nav-ico">↗</span><span data-i18n="automations">Automations</span></button>
+      <button class="nav-item" data-view="free-tools"><span class="nav-ico">⚒</span><span data-i18n="freeTools">Free tools</span></button>
+      <button class="nav-item" data-view="guides"><span class="nav-ico">▤</span><span data-i18n="guides">Guides & docs</span></button>
+    </nav>
+    <div class="nav-label" data-i18n="workspace">WORKSPACE</div>
+    <nav aria-label="Workspace">
+      <button class="nav-item" data-view="library"><span class="nav-ico">▣</span><span data-i18n="library">My library</span></button>
+      <button class="nav-item" data-view="orders"><span class="nav-ico">◷</span><span data-i18n="orders">Order history</span></button>
+    </nav>
+    <div class="nav-label" data-i18n="management">MANAGEMENT</div>
+    <nav aria-label="Management">
+      <button class="nav-item" data-view="admin"><span class="nav-ico">◫</span><span data-i18n="admin">Admin dashboard</span><span class="alpha">DEMO</span></button>
+    </nav>
+    <div class="side-spacer"></div>
+    <div class="plan-card"><div class="plan-top"><span class="tiny-star">✦</span> BUILDNEST LAB</div><b data-i18n="shipMore">Build once. Sell worldwide.</b><p data-i18n="planDesc">Automation, AI, and desktop tools in one place.</p><button id="planView" data-i18n="viewRoadmap">View roadmap ↗</button></div>
+    <div class="sidebar-footer"><div class="small-avatar">BN</div><div><b>BuildNest Studio</b><small>Developer workspace</small></div><span class="ellipsis">•••</span></div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+  <main class="main">
+    <header class="topbar"><button id="mobileMenu" class="mobile-menu" aria-label="Open menu">☰</button><div class="breadcrumbs"><span data-i18n="workspace">Workspace</span><span>/</span><b id="breadcrumb">Overview</b></div><div class="top-actions"><div class="top-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search products, tools..."/><kbd>⌘ K</kbd></div><button id="themeToggle" class="icon-btn" title="Theme" aria-label="Toggle theme">☾</button><button id="langToggle" class="lang-switch" title="Switch language">EN <span>⌄</span></button><button id="notificationBtn" class="icon-btn" title="About this demo">♧</button><div class="top-avatar">BN</div></div></header>
+    <div class="content" id="content"></div>
+  </main>
+</div>
+<div id="modalLayer"></div><div id="toastRegion" aria-live="polite"></div>
+<script src="app.js"></script>
+</body></html>

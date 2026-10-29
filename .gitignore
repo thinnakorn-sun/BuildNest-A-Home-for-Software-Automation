@@ -1,0 +1,30 @@
+# Build artifacts / generated caches
+node_modules/
+.next/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+*.log
+test-results/
+.DS_Store
+
+# Credentials — sample placeholders only may be committed
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.key
+
+# Local Python browser-test environment
+.venv/
+__pycache__/
+
+# Tool caches and local temporary files
+.cache/
+.turbo/
+.pytest_cache/
+*.py[cod]
+tmp/
+temp/

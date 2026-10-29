@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-29",
+  "node": "v22.22.2",
+  "npm": "10.9.7",
+  "results": [
+    {
+      "command": "npm test",
+      "exit_code": 127,
+      "output_tail": "npm error path /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error workspace @buildnest/contracts@0.3.0\nnpm error location /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error command failed\nnpm error command sh -c tsc -p tsconfig.json\nnpm error Lifecycle script `test` failed with error:\nnpm error code 127\nnpm error path /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error workspace @buildnest/contracts@0.3.0\nnpm error location /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error command failed\nnpm error command sh -c npm run build && node --test test/*.test.cjs\n"
+    },
+    {
+      "command": "npm run test:qa",
+      "exit_code": 1,
+      "output_tail": "  duration_ms: 7.503458\n  type: 'test'\n  ...\n1..65\n# tests 65\n# suites 0\n# pass 64\n# fail 1\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 142.620417\n"
+    },
+    {
+      "command": "npm run test:native",
+      "exit_code": 1,
+      "output_tail": "    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24)\n    at Module.require (node:internal/modules/cjs/loader:1463:12)\n    at require (node:internal/modules/helpers:147:16)\n    at Object.<anonymous> (/Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/frontend/scripts/test_native_csv.cjs:2:91)\n    at Module._compile (node:internal/modules/cjs/loader:1705:14) {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: [\n    '/Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/frontend/scripts/test_native_csv.cjs'\n  ]\n}\n\nNode.js v22.22.2\n"
+    },
+    {
+      "command": "npm run typecheck:contracts",
+      "exit_code": 127,
+      "output_tail": "\n> @buildnest/contracts@0.3.0 typecheck\n> tsc --noEmit -p tsconfig.json\n\nsh: tsc: command not found\nnpm error Lifecycle script `typecheck` failed with error:\nnpm error code 127\nnpm error path /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error workspace @buildnest/contracts@0.3.0\nnpm error location /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error command failed\nnpm error command sh -c tsc --noEmit -p tsconfig.json\n"
+    },
+    {
+      "command": "npm run typecheck",
+      "exit_code": 127,
+      "output_tail": "\n> @buildnest/contracts@0.3.0 build\n> tsc -p tsconfig.json\n\nsh: tsc: command not found\nnpm error Lifecycle script `build` failed with error:\nnpm error code 127\nnpm error path /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error workspace @buildnest/contracts@0.3.0\nnpm error location /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error command failed\nnpm error command sh -c tsc -p tsconfig.json\n"
+    },
+    {
+      "command": "npm run typecheck -w @buildnest/api",
+      "exit_code": 127,
+      "output_tail": "\n> @buildnest/api@0.3.1 typecheck\n> tsc --noEmit\n\nsh: tsc: command not found\nnpm error Lifecycle script `typecheck` failed with error:\nnpm error code 127\nnpm error path /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/backend\nnpm error workspace @buildnest/api@0.3.1\nnpm error location /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/backend\nnpm error command failed\nnpm error command sh -c tsc --noEmit\n"
+    },
+    {
+      "command": "npm run typecheck -w @buildnest/web",
+      "exit_code": 127,
+      "output_tail": "\n> @buildnest/web@0.3.1 typecheck\n> tsc --noEmit\n\nsh: tsc: command not found\nnpm error Lifecycle script `typecheck` failed with error:\nnpm error code 127\nnpm error path /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/frontend\nnpm error workspace @buildnest/web@0.3.1\nnpm error location /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/frontend\nnpm error command failed\nnpm error command sh -c tsc --noEmit\n"
+    },
+    {
+      "command": "npm run build",
+      "exit_code": 127,
+      "output_tail": "\n> @buildnest/contracts@0.3.0 build\n> tsc -p tsconfig.json\n\nsh: tsc: command not found\nnpm error Lifecycle script `build` failed with error:\nnpm error code 127\nnpm error path /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error workspace @buildnest/contracts@0.3.0\nnpm error location /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/shared/contracts\nnpm error command failed\nnpm error command sh -c tsc -p tsconfig.json\n"
+    },
+    {
+      "command": "npm run build -w @buildnest/api",
+      "exit_code": 127,
+      "output_tail": "\n> @buildnest/api@0.3.1 build\n> tsc -p tsconfig.json\n\nsh: tsc: command not found\nnpm error Lifecycle script `build` failed with error:\nnpm error code 127\nnpm error path /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/backend\nnpm error workspace @buildnest/api@0.3.1\nnpm error location /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/backend\nnpm error command failed\nnpm error command sh -c tsc -p tsconfig.json\n"
+    },
+    {
+      "command": "npm run build -w @buildnest/web",
+      "exit_code": 127,
+      "output_tail": "\n> @buildnest/web@0.3.1 build\n> next build\n\nsh: next: command not found\nnpm error Lifecycle script `build` failed with error:\nnpm error code 127\nnpm error path /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/frontend\nnpm error workspace @buildnest/web@0.3.1\nnpm error location /Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/frontend\nnpm error command failed\nnpm error command sh -c next build\n"
+    },
+    {
+      "command": "npm run test:visual",
+      "exit_code": 1,
+      "output_tail": "\n> buildnest@0.3.2-handoff.1 test:visual\n> python3 frontend/scripts/qa_native_visual.py\n\nTraceback (most recent call last):\n  File \"/Users/sunshine/Documents/BuildNest/BuildNest — A Home for Software & Automation/frontend/scripts/qa_native_visual.py\", line 13, in <module>\n    from playwright.sync_api import sync_playwright\nModuleNotFoundError: No module named 'playwright'\n"
+    },
+    {
+      "command": "npm run test:design",
+      "exit_code": 0,
+      "output_tail": "\n> buildnest@0.3.2-handoff.1 test:design\n> python3 frontend/scripts/check_design_lock.py\n\nDESIGN LOCK PASS: SHA-256 75a83016107b485b5e6928daac92bb663b497062ee3becfe01e8b7633479597f\n"
+    },
+    {
+      "command": "npm run test:routes",
+      "exit_code": 0,
+      "output_tail": "\n> buildnest@0.3.2-handoff.1 test:routes\n> python3 frontend/scripts/check_native_routes.py\n\nPASS: 9 locale routes render native React and M1.1 backup preserved\n"
+    },
+    {
+      "command": "node --test --test-reporter=spec backend/tests/mock-payment.test.cjs shared/tests/*.test.cjs",
+      "exit_code": 0,
+      "output_tail": "✔ session cookies use HttpOnly and SameSite=Lax (0.335916ms)\n✔ session cookies use Secure in production mode (1.742ms)\n✔ auth proxy fails closed without login (0.527709ms)\n✔ source repo does not include live Stripe keys in runtime code (35.031417ms)\nℹ tests 64\nℹ suites 0\nℹ pass 64\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 198.562417\n"
+    },
+    {
+      "command": "node --check frontend/public/buildnest/app.js",
+      "exit_code": 0,
+      "output_tail": ""
+    },
+    {
+      "command": "npm pkg get name --workspaces",
+      "exit_code": 0,
+      "output_tail": "{\n  \"@buildnest/web\": \"@buildnest/web\",\n  \"@buildnest/api\": \"@buildnest/api\",\n  \"@buildnest/contracts\": \"@buildnest/contracts\"\n}\n"
+    }
+  ]
+}

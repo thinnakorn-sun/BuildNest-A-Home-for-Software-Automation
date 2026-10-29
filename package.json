@@ -1,0 +1,33 @@
+{
+  "name": "buildnest",
+  "private": true,
+  "version": "0.3.2-handoff.1",
+  "workspaces": [
+    "frontend",
+    "backend",
+    "shared/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n WEB,API -c cyan,magenta 'npm run dev -w @buildnest/web' 'npm run dev -w @buildnest/api'",
+    "dev:web": "npm run dev -w @buildnest/web",
+    "dev:api": "npm run dev -w @buildnest/api",
+    "build": "npm run build -w @buildnest/contracts && npm run build -w @buildnest/api && npm run build -w @buildnest/web",
+    "test:contracts": "npm run test -w @buildnest/contracts",
+    "typecheck:contracts": "npm run typecheck -w @buildnest/contracts",
+    "typecheck": "npm run build -w @buildnest/contracts && npm run typecheck -w @buildnest/api && npm run typecheck -w @buildnest/web",
+    "test:design": "python3 frontend/scripts/check_design_lock.py",
+    "test:m2:browser": "python3 frontend/scripts/qa_m2.py",
+    "test:native": "node frontend/scripts/test_native_csv.cjs",
+    "test:routes": "python3 frontend/scripts/check_native_routes.py",
+    "test:qa": "node --test backend/tests/*.test.cjs shared/tests/*.test.cjs",
+    "test": "npm run test:contracts && npm run test:native && npm run test:qa && npm run test:design && npm run test:routes",
+    "test:visual": "python3 frontend/scripts/qa_native_visual.py"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "~5.8.3"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}
