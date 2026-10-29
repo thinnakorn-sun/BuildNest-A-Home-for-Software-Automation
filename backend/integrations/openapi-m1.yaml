@@ -1,0 +1,61 @@
+openapi: 3.0.3
+info:
+  title: BuildNest M1 Public Catalog API
+  version: 0.2.0
+  description: Development-only read-only endpoints. All catalog data is illustrative.
+servers:
+  - url: http://localhost:4000/v1
+paths:
+  /health:
+    get:
+      operationId: health
+      summary: Public development health check
+      responses:
+        '200':
+          description: Development API status
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, service, mode, version]
+                properties:
+                  status: {type: string, enum: [ok]}
+                  service: {type: string, example: buildnest-api}
+                  mode: {type: string, enum: [development]}
+                  version: {type: string, example: 0.2.0}
+  /catalog:
+    get:
+      operationId: listCatalog
+      summary: Search example products
+      parameters:
+        - {name: q, in: query, schema: {type: string, maxLength: 100}}
+        - {name: category, in: query, schema: {type: string, maxLength: 60}}
+        - {name: limit, in: query, schema: {type: integer, minimum: 1, maximum: 999}}
+      responses:
+        '200':
+          description: Sample product catalog
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items, total, source]
+                properties:
+                  source: {type: string, enum: [sample]}
+                  total: {type: integer}
+                  items: {type: array, items: {type: object, additionalProperties: true}}
+        '400': {description: Invalid search query}
+  /catalog/{slug}:
+    get:
+      operationId: getCatalogProduct
+      summary: Look up product by stable slug
+      parameters:
+        - {name: slug, in: path, required: true, schema: {type: string}}
+      responses:
+        '200': {description: Sample product metadata}
+        '404': {description: Product not found}
+  /automations/templates:
+    get:
+      operationId: getAutomationTemplates
+      summary: Read-only sample automation templates, not executable
+      responses:
+        '200': {description: Concepts with executionEnabled=false}

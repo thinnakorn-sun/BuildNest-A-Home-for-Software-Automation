@@ -1,0 +1,18 @@
+---
+description: BuildNest branch and pull request workflow
+alwaysApply: true
+---
+
+# Git workflow
+
+- Read AGENTS.md and relevant docs before each task.
+- Fetch origin and start from latest origin/develop without discarding local work.
+- Use feat/<feature-name>, fix/<issue-name>, or refactor/<scope>.
+- Initial import uses chore/initial-import from develop.
+- Never commit directly to main or develop.
+- Make small commits and run relevant tests before an authorized push.
+- Push only the current task branch; open a PR targeting develop.
+- Never force-push shared branches or automatically merge.
+- main merge and production deployment require explicit owner approval.
+- Never change payment credentials without approval or commit secrets.
+- Preserve the approved BuildNest UI.

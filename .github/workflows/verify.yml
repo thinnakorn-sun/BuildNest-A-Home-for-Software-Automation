@@ -1,0 +1,25 @@
+name: Verify BuildNest M1.1
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python3 frontend/scripts/check_design_lock.py
+      - run: node --check frontend/public/buildnest/app.js
+      - run: npm install
+      - run: npm run test:contracts
+      - run: npm run test:native
+      - run: npm run test:qa
+      - run: npm run test:routes
+      - run: npm run typecheck
+      - run: npm run build

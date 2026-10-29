@@ -1,0 +1,16 @@
+'use client';import {useEffect,useMemo,useState} from 'react';import type {Product,PublicCatalogResponse} from '@buildnest/contracts';import {LockedShell} from './locked-shell';
+export function LiveCatalog({locale}:{locale:'th'|'en'}){
+ const[data,setData]=useState<PublicCatalogResponse|null>(null),[error,setError]=useState(''),[q,setQ]=useState(''),[category,setCategory]=useState('All'),[current,setCurrent]=useState<Product|null>(null);
+ useEffect(()=>{fetch('/api/catalog',{cache:'no-store'}).then(async r=>{if(!r.ok)throw Error('Backend is not available');setData(await r.json())}).catch(e=>setError(e.message))},[]);
+ const categories=useMemo(()=>['All',...new Set((data?.items||[]).map(p=>p.category))],[data]);
+ const filtered=useMemo(()=>(data?.items||[]).filter(p=>(category==='All'||p.category===category)&&[p.title.th,p.title.en,p.summary.en,p.summary.th].join(' ').toLowerCase().includes(q.toLowerCase())),[data,category,q]);
+ return <LockedShell locale={locale} heading="Live Catalog"><section className="page-header"><div><div className="eyebrow">BUILDNEST / M2</div><h1>Live Catalog</h1><p>React catalog reading the public API. Checkout remains disabled.</p></div><a className="outline-btn" href={`/buildnest/index.html?lang=${locale}&view=marketplace`}>Classic preview ↗</a></section>
+ <div className="demo-banner">◉ Source: {data?.source==='supabase'?'Supabase published catalog':'Sample products until Supabase is configured'}. No payment or download will be initiated.</div>
+ {error&&<div className="panel"><p>{error}</p></div>}
+ <div className="filter-row">{categories.map(c=><button key={c} className={'chip '+(category===c?'selected':'')} onClick={()=>setCategory(c)}>{c}</button>)}</div>
+ <div className="toolbar"><span className="muted" style={{fontSize:11}}>{filtered.length} products</span><input className="input" aria-label="Search products" placeholder="Search products" value={q} onChange={e=>setQ(e.target.value)}/></div>
+ {!data&&!error&&<div className="panel">Loading catalog...</div>}
+ <div className="product-grid">{filtered.map(p=><article className="product-card" key={p.id}><div className="product-cover cover-a"><span className="badge-corner">{p.tag}</span><div className="cover-icon">{p.icon}</div></div><div className="product-body"><div className="product-meta">{p.category}</div><h3>{p.title[locale]}</h3><p>{p.summary[locale]}</p><div className="product-bottom"><span className="price">{locale==='th'?`฿${p.price.THB.toLocaleString('en-US')}`:`$${p.price.USD.toFixed(2)}`}</span><button className="small-buy" onClick={()=>setCurrent(p)}>Details ↗</button></div></div></article>)}</div>
+ {current&&<div className="modal-backdrop" role="presentation" onClick={()=>setCurrent(null)}><div role="dialog" aria-modal="true" aria-label="Product detail" className="modal" onClick={e=>e.stopPropagation()}><div className="modal-head"><div><h2>{current.title[locale]}</h2><p>{current.category} · {current.status}</p></div><button className="modal-close" aria-label="Close" onClick={()=>setCurrent(null)}>×</button></div><p>{current.summary[locale]}</p><div className="demo-banner">Purchasing is disabled until the verified Stripe/entitlement milestone.</div><button className="primary-btn" onClick={()=>setCurrent(null)}>Close</button></div></div>}
+ </LockedShell>;
+}

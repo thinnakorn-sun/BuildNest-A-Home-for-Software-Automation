@@ -1,0 +1,13 @@
+/* M2 additions; original approved M0 CSS remains byte-for-byte intact. */
+.m11-inline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:15px}
+.m11-button-row,.m11-admin-footer{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.m11-inline .input,.m11-inline select{width:100%}
+a.nav-item{text-decoration:none}
+a.primary-btn,a.outline-btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+@media(max-width:620px){.m11-inline{grid-template-columns:1fr}}
+/* M1.2 React port: explicit UA-neutral button reset; original M0 design CSS unchanged. */
+#app .sidebar .nav-item {background:transparent;color:#98a6bf;appearance:none;-webkit-appearance:none;}
+#app .sidebar .nav-item.active {color:white;background:linear-gradient(100deg,#4f5cf5,#665cf0);box-shadow:0 7px 19px #404cdb44;}
+#app .sidebar .nav-item:hover:not(.active){background:#19263c;color:white;}
+#app .hero .outline-btn {background:#ffffff10;color:white;border-color:#ffffff4a;}
+#app .welcome .outline-btn {background:var(--surface);color:var(--text);}

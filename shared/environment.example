@@ -1,0 +1,9 @@
+# M2: never commit actual secrets. No external services are connected in this build.
+WEB_ORIGIN=http://localhost:3000
+API_PORT=4000
+API_INTERNAL_URL=http://localhost:4000
+# Supabase project settings (server-side use only for this starter)
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+# No Stripe/R2/Apify credentials in M2; integrations deferred to later milestones.
